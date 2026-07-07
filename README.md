@@ -61,22 +61,27 @@ src/
 
 Crear componente `Layout.jsx` que contenga un elemento **header** y **footer** (simplemente etiquetas `<h2>`).
 
-### 2.2 Configuración de rutas iniciales
+```jsx
+const Layout = () => {
+  return (
+    <>
+      <header>
+        <h1>Tienda digital</h1>
+      </header>
 
-Configurar ruta de Layout en `App.jsx`
+      <Outlet />
 
-- Layout para toda la página.
-- Ruta por defecto a `Home.jsx` (crear `Home.jsx`).
-- Ruta 404 not found (crear `404.jsx`)
+      <footer>
+        <p>Hecho por alumno</p>
+      </footer>
+    </>
+  );
+};
 
-```html
-<Route element={<Layout />}>
-    <Route element={<Home />} />
-    <Route path="*" element={<NotFound />} />
-</Route>
+export default Layout;
 ```
 
-### 2.3 Página inicial: Listado de productos
+### 2.2 Página inicial: Listado de productos
 
 Crear página `/src/pages/Home.jsx` donde se listarán todos los productos. Configurar estados de productos.
 
@@ -94,6 +99,35 @@ Preparar para listar `productos`.
 )}
 ```
 
+### 2.3 Configuración de rutas iniciales
+
+Configurar `BrowserRoutes` de `react-router` dentro de `main.jsx`
+
+```jsx
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+      <BrowserRouter>
+        ...
+      </BrowserRouter>
+  </StrictMode>
+);
+```
+
+Configurar ruta de Layout en `App.jsx`
+
+- Layout para toda la página.
+- Ruta por defecto a `Home.jsx` (crear `Home.jsx`).
+- Ruta 404 not found (crear `404.jsx`)
+
+```html
+<Routes>
+    <Route element={<Layout />}>
+        <Route element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+    </Route>
+</Routes>
+```
+
 ### 2.4 Página de producto
 
 Crear componente `/src/pages/Producto.jsx`
@@ -102,15 +136,15 @@ Crear componente `/src/pages/Producto.jsx`
 
 Crear componente `/src/pages/Carrito.jsx`
 
-### 2.6 Configuración de conexto global
+### 2.6 Configuración de contexto global
 
 Crear componente `/src/context/ProductoContext.jsx`
 
 ```jsx
 const ProductoContext = createContext(undefined);
 
-export const ProductoProvider = ({ children }: { children: React.ReactNode }) => {
-    const [produtos, setProductos] = useState([])
+export const ProductoProvider = ({ children }) => {
+    const [productos, setProductos] = useState([])
 
     return (
         <ProductoContext.Provider value={{productos, setProductos}}>
@@ -126,6 +160,18 @@ export const useProducto = () => {
 
   return context;
 };
+```
+
+Dentro de `main.jsx` 
+
+```jsx
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+        <ProductoProvider>
+            ...
+        </ProductoProvider>
+  </StrictMode>
+);
 ```
 
 ## 3. Utilidades
