@@ -1,15 +1,23 @@
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useEffect } from 'react'
+import getProductos from '../bin/getProductos'
 
 const ProductoContext = createContext(undefined);
 
 export const ProductoProvider = ({ children }) => {
-    const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([])
 
-    return (
-        <ProductoContext.Provider value={{productos, setProductos}}>
-            { children }
-        </ProductoContext.Provider>
-    )
+  useEffect(() => {
+    async function getProds() {
+      setProductos(await getProductos())
+    }
+    getProds()
+  }, [])
+
+  return (
+    <ProductoContext.Provider value={{ productos, setProductos }}>
+      {children}
+    </ProductoContext.Provider>
+  )
 }
 
 export const useProducto = () => {

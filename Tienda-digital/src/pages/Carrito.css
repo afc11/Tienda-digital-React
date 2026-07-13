@@ -1,0 +1,67 @@
+#Carrito {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#Carrito table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#Carrito thead {
+  background: #2563eb; 
+  color: white;
+}
+
+#Carrito th,
+#Carrito td {
+  padding: 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#Carrito th {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#Carrito tbody tr {
+  border-bottom: 1px solid #e5e7eb; 
+  transition: background 0.2s;
+}
+
+#Carrito tbody tr:last-child {
+  border-bottom: none; 
+}
+
+#Carrito tbody tr:hover {
+  background: #f8fafc; 
+}
+
+#Carrito td img {
+  vertical-align: middle;
+  margin-right: 15px;
+  background-color: white;
+  object-fit: contain;
+}
+
+#Carrito td button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+#Carrito td button:hover {
+  background-color: #dc2626;
+}
