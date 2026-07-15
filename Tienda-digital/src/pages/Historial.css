@@ -1,0 +1,48 @@
+#Historial {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#Historial h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.historial-compras {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compra-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.compra-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compra-header h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #1f2937;
+}
+
+.compra-header p {
+  margin: 4px 0 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.compra-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+}

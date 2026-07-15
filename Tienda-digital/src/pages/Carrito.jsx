@@ -2,7 +2,8 @@ import { useCarrito } from "../contexts/CarritoContext";
 import "./Carrito.css";
 
 const Carrito = () => {
-    const { carrito, popToCarrito } = useCarrito();
+
+    const { carrito, popToCarrito, incrementar, decrementar, finalizarCompra } = useCarrito();
 
     return (
         <div id="Carrito">
@@ -37,11 +38,25 @@ const Carrito = () => {
                                 <button onClick={() => popToCarrito(producto.id)}>
                                     Quitar del carrito
                                 </button>
+                                <button onClick={() => incrementar(producto.id)}>+</button>
+                                <button onClick={() => decrementar(producto.id)}>-</button>
+
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+
+            {carrito.length > 0 && (
+                <div className="carrito-resumen">
+                    <h3>
+                        Total a pagar: ${carrito.reduce((sum, item) => sum + item.total_price, 0).toFixed(2)}
+                    </h3>
+                    <button onClick={finalizarCompra} className="btn-finalizar">
+                        Finalizar Compra
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

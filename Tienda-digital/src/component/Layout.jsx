@@ -25,7 +25,7 @@ const Header = () => {
       <nav>
         <Link to={"/"}>Home</Link>
         <Link to={"about"}>About</Link>
-
+        <Link to="/compras">Historial</Link>
         <Link to={"carrito"}>Carrito</Link>
       </nav>
     </header>

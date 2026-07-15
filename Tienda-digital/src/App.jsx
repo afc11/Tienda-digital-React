@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router'
 import NotFoud from './component/NotFaund.jsx'
 import Producto from './pages/Producto.jsx'
 import Carrito from './pages/Carrito.jsx'
+import Historial from './pages/Historial.jsx'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="productos/:productId" element={<Producto />} />
           <Route path="carrito" element={<Carrito />} />
           <Route path="producto/:productId" element={<Producto />} />
+          <Route path="compras" element={<Historial />} />
 
           <Route path="*" element={<NotFoud />} />
         </Route>
